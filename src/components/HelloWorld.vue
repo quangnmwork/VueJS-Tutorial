@@ -1,6 +1,7 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="hello" id="hello">
+    <h1>{{ msg }} My god</h1>
+    <span v-html="msg"></span>
   </div>
 </template>
 
