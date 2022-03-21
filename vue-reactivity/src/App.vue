@@ -1,13 +1,17 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <MainComponent msg="Hello" />
 </template>
 
 <script>
-export default {
+import { defineComponent } from '@vue/runtime-core';
+import MainComponent from './components/Main.vue';
+export default defineComponent({
   name: 'App',
-  components: {}
-};
+  components: {
+    MainComponent
+  }
+});
 </script>
 
 <style>
