@@ -1,5 +1,8 @@
 <template>
-  <div class="hello">{{ personInfo }}</div>
+  <div :class="$attrs.class">{{ personInfo }}</div>
+  <p :class="$attrs.class"></p>
+  <!-- <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div> -->
+  <!-- Auto-prefixing styles in vue-->
 </template>
 
 <script lang="ts">
@@ -17,24 +20,12 @@ export default defineComponent({
     personInfo() {
       return this.person.name + ' ' + this.person.age;
     }
+  },
+  mounted() {
+    console.log('Main component is mounted');
   }
 });
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style scoped></style>

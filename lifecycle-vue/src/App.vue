@@ -1,6 +1,17 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <MainComponent :person="{ name: 'Quang', age: '20' }" />
+  <MainComponent :person="person" class="parent-class" />
+  <!--// online add class if
+  there is only one tag -->
+  <button
+    @click="
+      () => {
+        person.age++;
+      }
+    "
+  >
+    Increment Age
+  </button>
 </template>
 
 <script lang="ts">
@@ -11,6 +22,11 @@ export default defineComponent({
   name: 'App',
   components: {
     MainComponent
+  },
+  data() {
+    return {
+      person: { name: 'Quang', age: 20 }
+    };
   }
 });
 </script>
