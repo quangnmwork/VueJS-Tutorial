@@ -4,9 +4,11 @@ module.exports = {
     node: true
   },
   extends: ['plugin:vue/vue3-essential', '@vue/standard'],
+  parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: '@babel/eslint-parser',
-    ecmaVersion: 6
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 6,
+    sourceType: 'module'
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -14,6 +16,5 @@ module.exports = {
     quotes: ['error', 'single', { avoidEscape: true }],
     'space-before-function-paren': ['error', 'never'],
     semi: ['error', 'always', { omitLastInOneLineBlock: true }]
-  },
-  plugins: ['@vue']
+  }
 };

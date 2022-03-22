@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <MainComponent msg="Welcome to Your Vue.js + TypeScript App" />
+  <MainComponent :person="{ name: 'Quang', age: '20' }" />
 </template>
 
 <script lang="ts">

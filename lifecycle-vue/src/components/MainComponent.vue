@@ -1,9 +1,9 @@
 <template>
-  <div class="hello"></div>
+  <div class="hello">{{ personInfo }}</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, defineProps, PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { IPerson } from './IType/ITypes';
 export default defineComponent({
   name: 'MainComponent',
@@ -11,6 +11,11 @@ export default defineComponent({
     person: {
       type: Object as PropType<IPerson>,
       required: true
+    }
+  },
+  computed: {
+    personInfo() {
+      return this.person.name + ' ' + this.person.age;
     }
   }
 });
