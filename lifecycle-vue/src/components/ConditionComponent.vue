@@ -5,7 +5,7 @@
     <p v-else-if="number > 20">You are too old</p>
     <p v-else>Yes you are</p>
     <p v-show="number > 20">Hi Im your uncle</p>
-    <button @click="randomAge()">Random your age</button>
+    <button @click.once="randomAge()">Random your age</button>
     <p>History</p>
     <ul>
       <li v-for="(eleHistory, index) in history" :key="index">
