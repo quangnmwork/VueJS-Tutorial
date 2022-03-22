@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <MainComponent :person="person" class="parent-class" />
+  <main-component :person="person" class="parent-class" />
   <!--// online add class if
   there is only one tag -->
   <button
@@ -12,16 +12,19 @@
   >
     Increment Age
   </button>
+  <condition-component />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import MainComponent from './components/MainComponent.vue';
+import ConditionComponent from './components/ConditionComponent.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    MainComponent
+    MainComponent,
+    ConditionComponent
   },
   data() {
     return {
