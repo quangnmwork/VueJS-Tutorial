@@ -3,13 +3,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, defineProps, PropType } from 'vue';
 import { IPerson } from './IType/ITypes';
 export default defineComponent({
   name: 'MainComponent',
   props: {
     person: {
-      type: Object as () => IPerson
+      type: Object as PropType<IPerson>,
+      required: true
     }
   }
 });

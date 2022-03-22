@@ -5,8 +5,8 @@ module.exports = {
   },
   extends: ['plugin:vue/vue3-essential', '@vue/standard'],
   parserOptions: {
-    ecmaVersions: 2020,
-    parser: '@babel/eslint-parser'
+    parser: '@babel/eslint-parser',
+    ecmaVersion: 6
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -14,5 +14,6 @@ module.exports = {
     quotes: ['error', 'single', { avoidEscape: true }],
     'space-before-function-paren': ['error', 'never'],
     semi: ['error', 'always', { omitLastInOneLineBlock: true }]
-  }
+  },
+  plugins: ['@vue']
 };
