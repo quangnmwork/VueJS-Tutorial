@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="">
-    <input v-model.lazy="inputText" placeholder="Input some text" />
+    <input v-model="inputText" placeholder="Input some text" ref="input" />
     <p>Answer : {{ answer }}</p>
     <!-- <select v-model="selectedValue">
       <option
@@ -31,14 +31,21 @@ export default defineComponent({
       selectedValue: '' as String
     };
   },
+  mounted() {
+    // console.log(this.$refs.input);
+  },
   watch: {
-    inputText(newInputText: String, oldInputText: String) {
-      if (newInputText.includes('?')) {
-        this.getAwnser();
-      }
-      if (!newInputText.length) {
-        this.answer = '';
-      }
+    inputText: {
+      handler(newInputText: String, oldInputText: String) {
+        console.log(newInputText, oldInputText);
+        if (newInputText.includes('?')) {
+          this.getAwnser();
+        }
+        if (!newInputText.length) {
+          this.answer = '';
+        }
+      },
+      deep: true
     }
   },
   methods: {
