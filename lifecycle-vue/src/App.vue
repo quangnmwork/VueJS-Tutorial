@@ -12,19 +12,23 @@
   >
     Increment Age
   </button>
-  <condition-component />
+  <!-- <condition-component /> -->
+  <form-component />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import MainComponent from './components/MainComponent.vue';
-import ConditionComponent from './components/ConditionComponent.vue';
+import FormComponent from './components/FormComponent.vue';
+
+// import ConditionComponent from './components/ConditionComponent.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     MainComponent,
-    ConditionComponent
+    FormComponent
+    // ConditionComponent
   },
   data() {
     return {
