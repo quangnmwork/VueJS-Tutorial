@@ -1,12 +1,11 @@
 <template>
   <div />
-  <job-item />
+  <JobItem :args="data" />
 </template>
-
 <script lang="ts" setup>
-// import JobItem from './components/JobItem.vue';
+import JobItem from './components/JobItem.vue';
+const data = { title: 'Next', description: '123' };
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
