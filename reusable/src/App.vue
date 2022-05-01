@@ -1,5 +1,6 @@
 <template>
   <p>Current Coordinate is : {{ x }},{{ y }}</p>
+  <p v-bold="`primary`">Guys</p>
 </template>
 
 <script lang="ts" setup>

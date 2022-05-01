@@ -1,4 +1,15 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
 
-createApp(App).mount('#app')
+const VueApp = createApp(App);
+VueApp.directive("bold", {
+  mounted: (el, binding) => {
+    if (binding.value == "primary") {
+      el.style.color = "blue";
+    } else {
+      el.style.color = "red";
+    }
+  },
+});
+VueApp.mount("#app");
+
