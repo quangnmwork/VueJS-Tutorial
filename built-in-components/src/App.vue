@@ -1,41 +1,60 @@
 <template>
-  <label>
-    <input type="radio" v-model="activeComponent" v-bind:value="compAVue" />A
-  </label>
-  <label>
-    <input type="radio" v-model="activeComponent" v-bind:value="compBVue" />B
-  </label>
-  <Transition name="custom">
-    <component :is="activeComponent"></component>
-  </Transition>
+  <div class="btn-group">
+    <button class="btn" @click="onAdd">Insert</button
+    ><button class="btn" @click="onShuffle">Shuffle</button
+    ><button class="btn" @click="onDelete">Delete some one</button>
+  </div>
+  <TransitionGroup name="fade" class="container">
+    <div class="item" v-for="item in array" :key="item">{{ item }}</div>
+  </TransitionGroup>
 </template>
 
 <script setup lang="ts">
-import { shallowRef } from "vue";
+import { ref } from "vue";
+import lodash from "lodash";
 
-import compAVue from "./components/compA.vue";
-import compBVue from "./components/compB.vue";
-const activeComponent = shallowRef(compAVue);
+const initArray = () => [1, 2, 3, 4, 5];
+const array = ref(initArray());
+
+const onAdd = () => {
+  array.value.push(Math.round(Math.random() * array.value.length));
+};
+const onShuffle = () => {
+  array.value = lodash.shuffle(array.value);
+};
+const onDelete = () => {
+  array.value = lodash.dropRight(array.value);
+};
 </script>
 
 <style lang="scss">
-.custom-enter-from {
-  font-size: 15px;
+.btn-group {
+  display: flex;
 }
-.custom-enter-to {
-  font-size: 50px;
+.btn {
+  padding: 5px 10px;
 }
-.custom-enter-active {
-  transition: opacity 0.5s ease;
+.container {
+  display: flex;
+  flex-direction: column;
 }
-.custom-leave-from {
-  font-size: 50px;
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
-.custom-leave-to {
-  font-size: 12px;
+
+/* 2. declare enter from and leave to state */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 1;
+  transform: scaleY(1.6) translate(30px, -20px);
 }
-.custom-leave-active {
-  transition: opacity 2s ease;
+
+/* 3. ensure leaving items are taken out of layout flow so that moving
+      animations can be calculated correctly. */
+.fade-leave-active {
+  position: absolute;
 }
 </style>
 
