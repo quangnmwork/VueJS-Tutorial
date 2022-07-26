@@ -9,6 +9,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "unplugin-vue-components": "^0.21.2",
     "vue": "^3.2.37"
   },
   "devDependencies": {
