@@ -2,10 +2,6 @@
 import Fuse from "fuse.js";
 import { Timezone } from "../types";
 
-import { timezones } from "../composables/data";
-
-import { addToTimeZone } from "../composables/state";
-
 const fuse = new Fuse(timezones, { keys: ["name"] });
 
 const input = ref("");
