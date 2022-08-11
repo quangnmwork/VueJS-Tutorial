@@ -1,6 +1,4 @@
-<script lang="ts" setup>
-import { zones } from "../composables/state";
-</script>
+<script lang="ts" setup></script>
 <template>
   <div>{{ zones }}</div>
 </template>

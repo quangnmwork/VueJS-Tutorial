@@ -4,15 +4,21 @@ import { Timezone } from "../types";
 
 const fuse = new Fuse(timezones, { keys: ["name"] });
 
-const input = ref("");
+let input = $ref("");
+let index = $ref(0);
+
+const inputNormal = ref("");
+// console.log(input, inputNormal);
+
 const searchResult = computed(() => {
-  return fuse.search(input.value);
+  return fuse.search(input);
 });
 
 function onEnter() {}
 function add(t: Timezone) {
   addToTimeZone(t);
-  input.value = "";
+  input = "";
+  index = 0;
 }
 </script>
 

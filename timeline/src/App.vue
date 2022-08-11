@@ -1,12 +1,9 @@
-<script setup lang="ts">
-import { zones } from "./composables/state";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div border="~ gray/20" m2 p2>
+  <div border="~ base rounded" bg-base shadow mx8>
     <ActionBar />
-
-    <pre>{{ zones }}</pre>
+    <TimeSchedular />
   </div>
 </template>
 
@@ -14,6 +11,7 @@ import { zones } from "./composables/state";
 html {
   background: #222;
   color: white;
+  height: 100vh;
   color-scheme: dark;
 }
 </style>
