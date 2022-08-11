@@ -1,4 +1,4 @@
-import { fileURLToPath, URL } from "node:url";
+// import { fileURLToPath, URL } from "node:url";
 import AutoImport from "unplugin-auto-import/vite";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
     Components(),
     AutoImport({
-      /* options */
+      imports: ["vue"],
     }),
     UnoCSS({
       presets: [presetUno(), presetAttributify(), presetIcons()],
